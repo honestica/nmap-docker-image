@@ -9,6 +9,7 @@ RUN apk add --update --no-cache \
             ca-certificates \
             libpcap \
             libgcc libstdc++ \
+            curl \
             libressl2.6-libcrypto libressl2.6-libssl \
  && update-ca-certificates \
  && rm -rf /var/cache/apk/*
@@ -18,7 +19,6 @@ RUN apk add --update --no-cache \
 RUN apk add --update --no-cache --virtual .build-deps \
         libpcap-dev libressl-dev lua-dev linux-headers \
         autoconf g++ libtool make \
-        curl \
 
  && curl -fL -o /tmp/nmap.tar.bz2 \
          https://nmap.org/dist/nmap-7.60.tar.bz2 \
